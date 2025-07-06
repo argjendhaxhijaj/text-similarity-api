@@ -2,7 +2,6 @@ services:
   nodebackend:
     build:
       context: ./node-js
-      dockerfile: Dockerfile
     ports:
       - "3000:3000"
     env_file:
@@ -15,11 +14,8 @@ services:
   ai-backend:
     build:
       context: ./python-ai
-      dockerfile: Dockerfile
     ports:
       - "8000:8000"
-    volumes:
-      - ./python-ai/cc.en.300.bin:/app/cc.en.300.bin
     networks:
       - app-network
 
